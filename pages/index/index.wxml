@@ -1,0 +1,55 @@
+<view class="main">
+  <!-- header -->
+  <biliHeader></biliHeader>
+  <!-- navi-tabbar -->
+  <view class="navi_container">
+    <scroll-view class="navi" scroll-x>
+      <view bindtap="naviItemClicked" data-index="{{index}}" class="navi_item {{index===naviCurrentIndex?'active':''}}"
+        wx:for="{{naviList}}" wx:key="{{index}}">
+        {{item.text}}
+      </view>
+    </scroll-view>
+
+  </view>
+
+
+  <!-- swiper img -->
+  <view class="slider">
+    <swiper indicator-dots="true" indicator-color="rgba(0,0,0,.3)" autoplay="true" interval="3500" duration="1000"
+      circular="true">
+      <swiper-item wx:for="{{swiperList}}" wx:key="{{index}}">
+        <navigator target="" url="" open-type="navigate">
+          <image class="" src="{{item.imgSrc}}" mode="widthFix">
+          </image>
+        </navigator>
+      </swiper-item>
+
+    </swiper>
+  </view>
+
+  <!-- video list -->
+  <view class="video_list">
+    <navigator class="video_list_item" url="../Detail/Detail?id={{item.id}}" hover-class="navigator-hover"
+      open-type="navigate" wx:for="{{videoList}}" wx:key="{{index}}">
+      <view class="video_img_block">
+
+        <image class="video_img" src="{{item.imgSrc}}" mode="widthFix">
+        </image>
+        <view class="videoInfo_block">
+          <view class="playCount_block">
+            <text class="fa fa-play-circle"></text>
+            <text class="playCount">{{item.playCount}}</text>
+          </view>
+
+          <text class="commentCount_block">
+            <text class="fa fa-comment"></text>
+            <text class="commentCount">{{item.commentCount}}</text>
+          </text>
+        </view>
+
+
+      </view>
+      <view class="videoTitle">{{item.desc}}</view>
+    </navigator>
+  </view>
+</view>

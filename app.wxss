@@ -1,0 +1,5 @@
+@import "./font/wxss/all.min.wxss";
+
+page,view,navigator,image,swiper,swiper-item,video{
+  box-sizing: border-box;
+}
